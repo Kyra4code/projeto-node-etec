@@ -1,0 +1,12 @@
+{
+  "name": "projeto-api",
+  "version": "1.0",
+  "description": "nada",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Kyra",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
