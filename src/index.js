@@ -1,13 +1,15 @@
 import express, { request, response } from "express";
-import {promises as fs, readFile} from "fs";
-import path from "path";
+import routes from "./routes.js";
 
 const server = express();
+
+server.use(express.json)
 
 server.listen(3000, ()=>{
     console.log("servidor ligado ☢☢☢")
 })
 
-server.get("/", (request, response)=>{
-    return response.status(200).send({"message": "Meu primeiro endpoint."})
-})
+server.use("/", routes)
+
+
+/*GET, PATCH, PUT, DELETE, POST*/ 
