@@ -10,12 +10,17 @@ route.get('/', (request, response)=>{
 route.post("/", async (request, response) =>{
     const {name, email, password, typeUser} = request.body;
 
-    await service.createUser(name, email, password, typeUser);
-    return response.status(201).send({"message": "usuário cadastrado com sucesso!"})
-
     if(typeUser.toUpperCase() != "ADMINISTRADOR" && typeUser.toUpperCase() != "COMUM"){
         return response.status(400).send({"message": "Selecione apenas Administrador ou Comum"});
     }
+
+    if(password.length <= 5){
+        return response.status(400).send({'message': 'A senha deve conter no minimo 6 digitos.'})
+    }
+
+    await service.createUser(name, email, password, typeUser);
+    return response.status(201).send({"message": "usuário cadastrado com sucesso!"})
+
 });
 
 export default route;
