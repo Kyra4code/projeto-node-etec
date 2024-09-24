@@ -5,7 +5,7 @@ async function createUser(name, email, password, typeUser){
 
     const infoUser = [name, email, password, typeUser];
 
-    const connection = await database.connectDB()
+    const connection = await database.connectDB();
     await connection.query(sql, infoUser);
     connection.end();
 }

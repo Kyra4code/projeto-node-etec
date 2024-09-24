@@ -14,10 +14,6 @@ route.post("/", async (request, response) =>{
         return response.status(400).send({"message": "Selecione apenas Administrador ou Comum"});
     }
 
-    if(password.length <= 5){
-        return response.status(400).send({'message': 'A senha deve conter no minimo 6 digitos.'})
-    }
-
     await service.createUser(name, email, password, typeUser);
     return response.status(201).send({"message": "usuário cadastrado com sucesso!"})
 
