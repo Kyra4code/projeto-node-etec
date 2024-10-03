@@ -13,3 +13,7 @@ server.use("/", routes)
 
 
 /*GET, PATCH, PUT, DELETE, POST*/ 
+//POST -> insert
+//PUT -> Update
+//GET -> select
+//DELETE -> delete
