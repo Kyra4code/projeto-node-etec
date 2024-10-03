@@ -19,6 +19,9 @@ route.post("/", async (request, response) =>{
 
 });
 
-
+route.put("/:idUser", async(request, response)=>{
+    const {name, email, password, typeUser} = request.body;
+    const {idUser} = request.param;
+});
 
 export default route;
