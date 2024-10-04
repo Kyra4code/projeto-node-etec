@@ -10,4 +10,14 @@ async function Creategender(genero){
     connection.end();
 }
 
-export default {Creategender};
+async function updateGender(gender, idGender){
+    const insert = "update tbl_genero set genero = ? where id_genero = ?"
+
+    const arrys = [gender, idGender]
+
+    const connection = await database.connectDB();
+    await connection.query(insert, arrys)
+    connection.end();
+}
+
+export default {Creategender, updateGender};

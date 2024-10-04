@@ -10,4 +10,14 @@ async function createDirector(nome_diretor, nacionalidade, dt_nascimento, sexo){
     connection.end();
 }
 
-export default {createDirector};
+async function updateDiretor(idDiretor, nome, nacio, dt_nasc, sex){
+    const sql = "update tbl_diretor set nome_diretor = ?, nacionalidade = ?, dt_nascimento = ?, sexo = ? where id_diretor = ?"
+    const info = [nome, nacio, dt_nasc, sex, idDiretor];
+
+    const connection = database.connectDB();
+    await connection.query(sql, info)
+    connection.end();
+    
+}
+
+export default {createDirector, updateDiretor};

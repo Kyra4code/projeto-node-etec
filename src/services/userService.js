@@ -11,7 +11,7 @@ async function createUser(name, email, password, typeUser){
 }
 
 async function updateUser(name, email, password, typeUser, idUser){
-    const sql = "update tbl_usuario set name = ?, email = ?,  tipo_usuario = ? where id_usuario= ?";
+    const sql = "update tbl_usuario set nome = ?, email = ?, senha = ?, tipo_usuario = ? where id_usuario= ?";
 
     const infoUser = [name, email, password, typeUser, idUser];
 
