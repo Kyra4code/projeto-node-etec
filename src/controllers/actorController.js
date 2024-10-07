@@ -18,3 +18,5 @@ route.put("/:idActor", async(request, response)=>{
     await atualizacaca0.updateAtor(idActor, nome, sex, dtn);
     return response.status(200).send({"message": "usuario atualizado com sucesso!"});
 })
+
+export default route
