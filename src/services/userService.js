@@ -20,4 +20,13 @@ async function updateUser(name, email, password, typeUser, idUser){
     connection.end();
 }
 
-export default {createUser, updateUser};
+async function pushDados(){
+    const sql = 'select * from tbl_usuario'
+
+    const connection = database.connectDB();
+    const [rows] = await connection.query(sql);
+    connection.end();
+    return rows;
+}
+
+export default {createUser, updateUser, pushDados};
