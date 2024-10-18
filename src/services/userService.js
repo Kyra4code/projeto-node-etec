@@ -23,7 +23,7 @@ async function updateUser(name, email, password, typeUser, idUser){
 async function pushDados(){
     const sql = 'select * from tbl_usuario'
 
-    const connection = database.connectDB();
+    const connection = await database.connectDB();
     const [rows] = await connection.query(sql);
     connection.end();
     return rows;

@@ -3,8 +3,14 @@ import service from '../services/userService.js';
 
 const route = express.Router();
 
-route.get('/', (request, response)=>{
-    return response.status(200).send({"message": "Listagem de usuarios realizada com sucesso!"})
+route.get('/', async (request, response)=>{
+    const result = await service.pushDados();
+
+    if(result.length < 1){
+        return response.status(204).send({'message': 'Usuario não encontrado'});
+    };
+
+    return response.status(200).send({"message": result})
 });
 
 route.post("/", async (request, response) =>{
@@ -35,8 +41,5 @@ route.put("/:idUser", async(request, response)=>{
     await service.updateUser(name, email, password, typeUser, idUser);
     return response.status(200).send({"message": "Usuario atualizado corretamente."})
 });
-
-route.get("/", async(request, response)=>{
-})
 
 export default route;
