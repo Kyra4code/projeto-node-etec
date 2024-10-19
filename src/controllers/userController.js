@@ -1,5 +1,6 @@
 import express, { request, response } from 'express'
 import service from '../services/userService.js';
+import req from 'express/lib/request.js';
 
 const route = express.Router();
 
@@ -10,7 +11,7 @@ route.get('/', async (request, response)=>{
         return response.status(204).send({'message': 'Usuario não encontrado'});
     };
 
-    return response.status(200).send({"message": result})
+    return response.status(200).send({'message': result})
 });
 
 route.post("/", async (request, response) =>{
@@ -40,6 +41,17 @@ route.put("/:idUser", async(request, response)=>{
 
     await service.updateUser(name, email, password, typeUser, idUser);
     return response.status(200).send({"message": "Usuario atualizado corretamente."})
+});
+
+route.delete('/:idUser', async(request, response)=>{
+    try{
+    const {idUser} = request.params;
+
+    await service.deleteUser(idUser);
+    return response.status(200).send({'message': 'Usuário deletado com sucesso!'})
+    }catch{
+        return response.send({'message': 'Não foi possível deletar o usuário, tente novamente.'})
+    }
 });
 
 export default route;

@@ -20,4 +20,22 @@ async function updateDiretor(idDiretor, nome, nacio, dt_nasc, sex){
     
 }
 
-export default {createDirector, updateDiretor};
+async function deleteDiretor(id_diretor){
+    const sql = "update tbl_diretor set deletado = 1 where = id_diretor = ?"
+
+    const connection = database.connectDB();
+    await connection.query(sql, id_diretor)
+    connection.end();
+    
+}
+
+async function pushDiretor(){
+    const sql = "select * from tbl_diretor where deletado = 0"
+
+    const connection = database.connectDB();
+    const [rows] = await connection.query(sql, info)
+    connection.end();
+    return rows;
+}
+
+export default {createDirector, updateDiretor, pushDiretor, deleteDiretor};

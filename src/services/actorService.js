@@ -18,4 +18,21 @@ async function updateAtor(idActor, name, sex, dtn) {
     await connection.end();
 }
 
-export default {insertAtor, updateAtor}
+async function deleteAtor(idActor) {
+    const sql = "update tbl_ator set deletado = 1 where id_ator = ?";
+
+    const connection = database.connectDB();
+    await connection.query(sql, idActor);
+    await connection.end();
+}
+
+async function pushAtor() {
+    const sql = "select * from tbl_ator where deletado = 0";
+
+    const connection = database.connectDB();
+    const [rows] = await connection.query(sql, info);
+    await connection.end();
+    return rows;
+}
+
+export default {insertAtor, updateAtor, deleteAtor, pushAtor }
