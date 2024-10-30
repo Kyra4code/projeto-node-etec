@@ -1,0 +1,17 @@
+{
+  "name": "login2024",
+  "version": "1.0.0",
+  "description": "Atividade de nodejs",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Kyra4code",
+  "type": "module",
+  "scripts": {
+    "nodemon": "npm install -g nodemon && nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3"
+  }
+}
