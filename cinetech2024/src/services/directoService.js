@@ -1,4 +1,4 @@
-import database from "../repository/mysql.js";
+import database from "../database/mysql.js";
 
 async function createDirector(nome_diretor, nacionalidade, dt_nascimento, sexo){
     const insert = "insert into tbl_diretor(nome_diretor, nacionalidade, dt_nascimento, sexo) values (?,?,?,?)";

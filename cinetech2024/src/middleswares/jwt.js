@@ -2,7 +2,7 @@ import { response } from 'express';
 import jwt from 'jsonwebtoken';
 
 async function verifyJWT(req, res, next){
-    const senha = 'pumbalapumba';
+    const secret = 'pumbalapumba';
 
     const authHeader = req.headers.authorization;
     if(!authHeader) return res.status(401).send({'message':'token não informado'})
@@ -10,7 +10,7 @@ async function verifyJWT(req, res, next){
     const parts = authHeader.split(' ');
     if(parts.length !== 2) return res.status(401).send({'message': 'Token inválido'});
 
-    const {scheme, token} = parts;
+    const [scheme, token] = parts;
 
     if(!/Bearer$/i.test(scheme)) return res.status(401).send({'message': 'Token Inválido'})
 
@@ -20,3 +20,5 @@ async function verifyJWT(req, res, next){
         return next();
     })
 }
+
+export default {verifyJWT}

@@ -1,4 +1,4 @@
-import database from "../repository/mysql.js";
+import database from "../database/mysql.js";
 
 async function Creategender(genero){
     const insert = "insert into tbl_genero(genero) values (?)";

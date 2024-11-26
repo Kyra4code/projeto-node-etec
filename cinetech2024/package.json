@@ -9,7 +9,8 @@
   "scripts": {
     "play": "npm install -g nodemon && npm install -g express && nodemon src/index.js",
     "p": "git push",
-    "c": "git add . && git config --global user.name 'Kyra4code' && git config --global user.email 'lucarioecharmito@gmail.com'"
+    "c": "git add . && git config --global user.name 'Kyra4code' && git config --global user.email 'lucarioecharmito@gmail.com'",
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "express": "^4.21.0",

@@ -31,4 +31,5 @@ route.delete('/:idDirector', async(request, response)=>{
     await conexao.deleteDiretor(idDirector);
     return response.status(200).send({'message': 'Diretor deletado com sucesso!'});
 })
+
 export default route;

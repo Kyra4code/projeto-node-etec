@@ -1,4 +1,4 @@
-import database from '../repository/mysql.js';
+import database from '../database/mysql.js';
 
 const Entrar = async(email, senha)=>{
     const sql = "select * from tbl_usuario where email = ? and senha = ?";
