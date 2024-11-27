@@ -14,6 +14,7 @@ route.get('/', async (request, response)=>{
     return response.status(200).send({'message': result})
 });
 
+//--------------------------------------------------POST---------------------------------------------//
 route.post("/", async (request, response) =>{
     const {name, email, password, typeUser} = request.body;
 

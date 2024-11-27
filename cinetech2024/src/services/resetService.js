@@ -10,7 +10,7 @@ async function checkEmail(email){
     return rows;
 }
 
-async function updatePassword(newPassword, email){
+async function updatePassword(email, newPassword){
     const sql = "update tbl_usuario set senha = ? where email = ?";
     const infos = [newPassword, email]
 

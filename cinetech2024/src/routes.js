@@ -4,7 +4,7 @@ import directorController from './controllers/directorController.js';
 import genderController from './controllers/genderController.js';
 import actorController from './controllers/actorController.js';
 import login from './controllers/loginController.js';
-import resetPassword from '../src/controllers/resetpassword.js';
+import resetPassword from './controllers/resetPassword.js';
 
 const routes = express();
 
@@ -18,6 +18,6 @@ routes.use("/actor", actorController);
 
 routes.use('/user/login', login);
 
-routes.use("/user/login/resetpassword", resetPassword);
+routes.use('/', resetPassword);
 
 export default routes;
